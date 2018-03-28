@@ -42,7 +42,7 @@ def main():
     for language in args.languages:
         print('Translate comments using "{0}" language'.format(language))
         translated_data = parallel(delayed(translate)(comment, language) for comment in comments_list)
-        train_data["comment_text"] = translated_data
+        train_data["text"] = translated_data
 
         result_path = os.path.join(args.result_path, "train_" + language + ".csv")
         train_data.to_csv(result_path, index=False)
