@@ -33,7 +33,7 @@ def main():
     args = parser.parse_args()
 
     train_data = pd.read_csv(args.train_file_path)
-    comments_list = train_data["comment_text"].fillna(NAN_WORD).values
+    comments_list = train_data["text"].fillna(NAN_WORD).values
 
     if not os.path.exists(args.result_path):
         os.mkdir(args.result_path)
